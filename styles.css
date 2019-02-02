@@ -1,3 +1,80 @@
+/* ----------------------
+		CSS Styles
+	
+	1. Main Style
+	2. Button Menu
+	3. Forms
+   ---------------------- */
+
+@import url("css/normalize.css");
+@import url("css/micro-clearfix.css");
+   
+/* Main Style */
 body {
-	background: black;
+	background-color: #1b2838;
+	color: white;
+	font-family: Arial, Sans-Serif;
 }
+
+
+header {
+	background-color: #171a21;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+
+#header_title {
+	font-family: "Motiva Sans", Sans-serif;
+	margin: 0px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#spanheader {
+	display: block;
+}
+
+
+
+/* Button Menu */
+#button_menu {
+	margin: 20px auto 0px;
+	display: grid;
+	text-align: center;
+	justify-content: center;
+	grid-template-columns: 50% 50%;
+	max-width: 720px;
+}
+
+div#button_menu > * {
+	margin: 10px;
+}
+
+.btn_menu {
+	background-color: grey;
+	padding: 40px 20px 40px 20px;
+	color: white;
+	text-decoration: none;
+}
+
+.btn_menu:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+}
+
+
+
+/* Forms */
+.forms-div1 {
+	max-width: 320px;
+	background-color: rgba(80, 215, 255, 0.1);
+}
+
+
+
+
+
+
+
+
