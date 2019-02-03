@@ -1,7 +1,7 @@
 function offlinesorter(url) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", url, true);
-	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.setRequestHeader("Content-Type", "x-www-form-urlencoded");
 	xhr.onreadystatechange = validate;
 	console.log(url, xhr);
 	xhr.send();
