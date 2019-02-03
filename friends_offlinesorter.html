@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Steam Tools</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../styles.css">
+		<script type="text/javascript" src="../js/friends_offlinesorter.js"></script>
+		<script>
+		function validatefields() {
+			var validation;
+			var validation1, validaiton2;
+			
+			key = document.getElementsByClassName("steam-api-key_field")[0].value
+			if (key == "") {
+				keySpan.nodeValue = "Please, enter your Steam API Key!";
+				validation1 = 0;
+			}
+			else {
+				keySpan.nodeValue = "";
+				validation1 = 1;
+			}
+			
+			steamid = document.getElementsByClassName("steamid64-profile-target_field")[0].value
+			if (steamid == "") {
+				steamidSpan.nodeValue = "Please, enter a SteamID64";
+				validation2 = 0;
+			}
+			else {
+				steamidSpan.nodeValue = "";
+				validation2 = 1;
+			}
+		
+		return validation = (validation1 + validation2);
+		}
+		</script>
+	</head>
+	<body>
+		<header>
+			<h1 id="header_title" align="center" onClick="window.location.href='../index.html';">Steam Tools</h1>
+		</header>
+		<div align="center">
+			<div class="forms-div1">
+				<form id="friends_offlinesorter-form">
+					<p class="form-input-title">Steam API Key:</p>
+					<input class="steam-api-key_field form-input" name="steam-api-key" type="text"></input>
+					<span id="form1-error" class="form-error">&nbsp;</span>
+					
+					<p class="form-input-title">SteamID64 from a profile:</p>
+					<input class="steamid64-profile-target_field form-input" name="steamid64-profile-target" type="text"></input>
+					<span id="form2-error" class="form-error">&nbsp;</span>
+					
+					<p align="left"><input class="form-button" type="submit" value="Submit"></p>
+				</form>
+			</div>
+		</div>
+		<span id="response">&nbsp;</span>
+	</body>
+	<script>
+	var keySpan = document.getElementById("form1-error").childNodes[0]
+	keySpan.nodeValue = "";
+	
+	var steamidSpan = document.getElementById("form2-error").childNodes[0]
+	steamidSpan.nodeValue = "";
+	
+	var key, steamid;
+	var form = document.getElementById("friends_offlinesorter-form");
+
+	form.addEventListener("submit", function(event) {
+		event.preventDefault();
+		
+		var validation_correct = validatefields();
+		
+		var url = "https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=" + key + "&steamid=" + steamid + "&relationship=friend&format=xml"
+	
+		if (validation_correct == 2) {
+			offlinesorter(url);
+		}
+	})
+	</script>
+</html>
